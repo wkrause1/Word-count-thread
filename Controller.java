@@ -1,5 +1,6 @@
 package WCThread;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,12 +21,14 @@ public class Controller {
     List<File> fileList;
     List <String> filePaths;
     List<String> fileNames;
+    List<Counter> runnables;
 
     public Controller() {
         //fileChooser = new FileChooser();
         fileList = new ArrayList<>();
         filePaths = new ArrayList<>();
         fileNames = new ArrayList<>();
+        runnables = new ArrayList<>();
     }
 
     private void makeFilePathList() {
@@ -36,6 +39,8 @@ public class Controller {
 
     public void showFileChooser() {
         fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         fileList = fileChooser.showOpenMultipleDialog(stage);
         makeFilePathList();
         mamkeFileNameList();
@@ -54,5 +59,16 @@ public class Controller {
     public void fillListView() {
         files.addAll(fileNames);
         listViewFiles.setItems(files);
+    }
+
+    public void runThreads() {
+        for (String path : filePaths) {
+            Counter c = new Counter(path);
+            runnables.add(c);
+        }
+        for (Counter c : runnables) {
+            Thread t = new Thread(c);
+            t.start();
+        }
     }
 }
