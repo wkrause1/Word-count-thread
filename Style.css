@@ -1,0 +1,59 @@
+
+@font-face {
+    font-family: 'Denton';
+    src: url('DentonBETA2.ttf');
+}
+
+}
+@font-face {
+    font-family: 'Orbitron';
+    src: url('Orbitron-Regular.ttf');
+}
+
+.text-area .content {
+    -fx-text-fill: #ffa700;
+    -fx-background-image: url('image.jpg');
+    -fx-border-color: #ffa700;
+}
+
+.text-area {
+    -fx-font-family: 'Orbitron';
+    -fx-text-fill: #ffa700;
+    -fx-font-size: 54;
+    -fx-border-color: #ffa700;
+}
+
+.button {
+    -fx-font-family: "Denton";
+    -fx-font-size: 20;
+    -fx-background-color: #383736;
+    -fx-text-fill: #ffa700;
+    -fx-border-color: #ffa700;
+}
+
+.button:pressed:hover {
+    -fx-background-color: #6e6d6c;
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
+.button:hover {
+    -fx-font-family: "Denton";
+    -fx-background-color: #545352;
+}
+
+.text-field {
+    -fx-text-fill: #ffa700;
+    -fx-font-family: "Denton";
+    -fx-background-color: #383736;
+    -fx-border-color: ffa700;
+    -fx-font-size: 32;
+}
+
+#pane{
+    -fx-background-image: url('image.jpg');
+
+}
+
+#summary_title .text-area {
+    -fx-font-size: 68;
+}
