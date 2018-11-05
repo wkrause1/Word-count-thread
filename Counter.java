@@ -2,12 +2,12 @@ package WCThread;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Counter implements Runnable {
@@ -16,6 +16,8 @@ public class Counter implements Runnable {
     private int wordCount;
     private Stage newStage;
     private TextArea tx;
+    private final int WIDTH = 1280;
+    private final int HEIGHT = 800;
 
 
     public Counter(String filePath) {
@@ -32,6 +34,8 @@ public class Counter implements Runnable {
         Scene scene = new Scene(tx);
         newStage = new Stage();
         newStage.setScene(scene);
+        newStage.setX(new Random().nextInt(WIDTH));
+        newStage.setY(new Random().nextInt(HEIGHT));
         newStage.show();
     }
 
@@ -54,9 +58,7 @@ public class Counter implements Runnable {
     @Override
     public void run() {
         countWords();
-        System.out.println(wordCount);
         updateGUI();
-
     }
 
 }

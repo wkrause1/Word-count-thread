@@ -14,17 +14,16 @@ import java.util.List;
 
 public class Controller {
     @FXML
-    ListView listViewFiles;
-    ObservableList<String> files = FXCollections.observableArrayList();
-    FileChooser fileChooser;
+    private ListView listViewFiles;
+    private ObservableList<String> files = FXCollections.observableArrayList();
+    private FileChooser fileChooser;
     private Stage stage;
-    List<File> fileList;
-    List <String> filePaths;
-    List<String> fileNames;
-    List<Counter> runnables;
+    private List<File> fileList;
+    private List <String> filePaths;
+    private List<String> fileNames;
+    private List<Counter> runnables;
 
     public Controller() {
-        //fileChooser = new FileChooser();
         fileList = new ArrayList<>();
         filePaths = new ArrayList<>();
         fileNames = new ArrayList<>();
