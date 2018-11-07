@@ -8,7 +8,7 @@
    <children>
       <ListView fx:id="listViewFiles" layoutX="508.0" layoutY="158.0" opacity="0.5" prefHeight="423.0" prefWidth="301.0" style="-fx-border-color: #ffa700;" />
       <Button fx:id="addBut" layoutX="231.0" layoutY="377.0" mnemonicParsing="false" onAction="#showFileChooser" text="Add Files" />
-      <Button fx:id="remBut" layoutX="968.0" layoutY="381.0" mnemonicParsing="false" onAction="#removeFile" text="Remove Files" />
+      <Button fx:id="remBut" layoutX="968.0" layoutY="381.0" mnemonicParsing="false" onAction="#resetFileList" text="Reset File List" />
       <Button layoutX="626.0" layoutY="645.0" mnemonicParsing="false" onAction="#runThreads" stylesheets="@Style.css" text="Run" />
    </children>
 </Pane>

@@ -39,7 +39,9 @@ public class Controller {
     public void showFileChooser() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+                new FileChooser.ExtensionFilter("All Files","*.*"),
+                new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+                new FileChooser.ExtensionFilter("Java Files", "*.java"));
         fileList = fileChooser.showOpenMultipleDialog(stage);
         makeFilePathList();
         makeFileNameList();
@@ -54,22 +56,12 @@ public class Controller {
         }
     }
 
-    public void removeFile() {
-        int index = listViewFiles.getSelectionModel().getSelectedIndex();
-        listViewFiles.getItems().remove(index);
-        String s = files.get(index);
-        System.out.println(s);
-        for (String str: filePaths) {
-            if(str.contains(s)) {
-                filePaths.remove(str);
-            }
-        }
-        for (String str: fileNames) {
-            if (str.contains(s)) {
-                fileNames.remove(str);
-            }
-        }
-
+    public void resetFileList() {
+        //fileList.clear();
+        filePaths.clear();
+        fileNames.clear();
+        files.clear();
+        listViewFiles.setItems(files);
     }
 
     public void setStage(Stage stage) {
