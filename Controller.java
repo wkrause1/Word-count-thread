@@ -39,13 +39,15 @@ public class Controller {
     public void showFileChooser() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Files","*.*"),
                 new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-                new FileChooser.ExtensionFilter("Java Files", "*.java"));
+                new FileChooser.ExtensionFilter("Java Files", "*.java"),
+                new FileChooser.ExtensionFilter("All Files","*.*"));
         fileList = fileChooser.showOpenMultipleDialog(stage);
-        makeFilePathList();
-        makeFileNameList();
-        fillListView();
+        if(fileList != null) {
+            makeFilePathList();
+            makeFileNameList();
+            fillListView();
+        }
     }
 
     private void makeFileNameList() {

@@ -37,8 +37,10 @@ public class Counter implements Runnable {
         tx = new TextArea();
         tx.setEditable(false);
         Scene scene = new Scene(tx);
+        scene.getStylesheets().add(this.getClass() .getResource("Style.css").toExternalForm());
         newStage = new Stage();
         newStage.setScene(scene);
+        tx.setPrefSize(640,480);
         newStage.setX(new Random().nextInt(WIDTH));
         newStage.setY(new Random().nextInt(HEIGHT));
         newStage.show();
@@ -47,11 +49,11 @@ public class Counter implements Runnable {
     private void updateGUI() {
         tx.appendText("Number of words: " + wordCount);
         tx.appendText("\nNumber of characters: " + charCount + "\n\n");
-        tx.appendText("Contents of file:\n");
+        tx.appendText("Contents of file:\n\n");
         tx.appendText(fileText);
     }
 
-    private void countWords() {
+    private void countWordAndChar() {
         try(Scanner sc = new Scanner(new FileInputStream(file))){
             fileText = FileUtils.readFileToString(file);
             while(sc.hasNext()) {
@@ -74,7 +76,7 @@ public class Counter implements Runnable {
 
     @Override
     public void run() {
-        countWords();
+        countWordAndChar();
         updateGUI();
     }
 

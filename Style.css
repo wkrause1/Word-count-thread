@@ -19,7 +19,7 @@
 .text-area {
     -fx-font-family: 'Orbitron';
     -fx-text-fill: #ffa700;
-    -fx-font-size: 54;
+    -fx-font-size: 15;
     -fx-border-color: #ffa700;
 }
 
