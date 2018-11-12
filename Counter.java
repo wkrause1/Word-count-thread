@@ -19,7 +19,7 @@ public class Counter implements Runnable {
     private int wordCount;
     private int charCount;
     private Stage newStage;
-    private TextArea tx;
+    private final TextArea tx = new TextArea();
     private final int WIDTH = 1280;
     private final int HEIGHT = 800;
 
@@ -34,7 +34,6 @@ public class Counter implements Runnable {
     }
 
     private void initGUI() {
-        tx = new TextArea();
         tx.setEditable(false);
         Scene scene = new Scene(tx);
         scene.getStylesheets().add(this.getClass() .getResource("Style.css").toExternalForm());
